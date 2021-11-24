@@ -8,8 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ViewPager2Experiment"
-        android:fullBackupContent="">
+        android:theme="@style/Theme.ViewPager2Experiment">
         <activity
             android:name="com.example.viewpager2example.MainActivity"
             android:exported="true">

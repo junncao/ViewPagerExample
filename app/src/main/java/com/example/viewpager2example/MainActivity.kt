@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import kotlin.math.abs
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val viewPager = findViewById<ViewPager2>(R.id.vpViewsWithItem)
-
+        val tv = findViewById<TextView>(R.id.tv)
         viewPager.adapter = ViewPager2Adapter(
             context = this,
             listItem = listOf(
@@ -42,6 +43,14 @@ class MainActivity : AppCompatActivity() {
 // it doesn't occupy the whole screen width. Without it the items overlap
         val itemDecoration = HorizontalMarginItemDecoration(currentItemHorizontalMarginPx)
         viewPager.addItemDecoration(itemDecoration)
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                tv.text = position.toString()
+
+            }
+        })
+
     }
 }
 
